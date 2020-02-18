@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4289caea-585b-4660-9ad6-c96435edb1c0" name="Default Changelist" comment="" />
+    <list default="true" id="4289caea-585b-4660-9ad6-c96435edb1c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Justin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/config/Areas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/BrazierAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/BrumaAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/EatAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseBrazier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/status/CurrentStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/stricker/status/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/Fighter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/Fighter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/config/Predicates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/config/Predicates.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/BankAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/BankAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/EnterAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/EnterAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/LeaveAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/LeaveAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseBurma.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseEnter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseEnter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseLeave.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/nodes/wintertodt/TraverseLeave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/paint/ScriptPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RSPeer_Scripts/io/stricker/paint/ScriptPaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/config/Predicates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/config/Predicates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/BankAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/BankAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/EnterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/EnterAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/LeaveAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/LeaveAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseBurma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseBruma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseEnter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseEnter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/nodes/wintertodt/TraverseLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/stricker/paint/ScriptPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/stricker/paint/ScriptPaint.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +47,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1XrZIvl7TLp2X64YqOYwnc32laR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,6 +61,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../RSPeer-AIO-Fighter-master" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -60,10 +98,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="872" y="358" key="#Project_Structure" timestamp="1581962257958">
+    <state x="872" y="358" key="#Project_Structure" timestamp="1581989700167">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="358" key="#Project_Structure/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581962257958" />
+    <state x="872" y="358" key="#Project_Structure/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581989700167" />
     <state x="3432" y="358" key="#Project_Structure/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1581806917099" />
     <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser" timestamp="1581806319296">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -81,9 +119,13 @@
       <screen x="2560" y="0" width="2560" height="1400" />
     </state>
     <state x="3320" y="274" key="SettingsEditor/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1581807255005" />
-    <state x="877" y="219" width="737" height="909" key="find.popup" timestamp="1581964140390">
+    <state x="877" y="219" width="737" height="909" key="find.popup" timestamp="1582063530199">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="877" y="219" width="737" height="909" key="find.popup/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581964140390" />
+    <state x="877" y="219" width="737" height="909" key="find.popup/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1582063530199" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1582062599434">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1582062599434" />
   </component>
 </project>

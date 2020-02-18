@@ -1,21 +1,15 @@
 package io.stricker.nodes.wintertodt;
 
 import io.stricker.config.Predicates;
-import io.stricker.framework.Location;
 import io.stricker.framework.Node;
 import io.stricker.models.NpcResult;
-import org.rspeer.runetek.adapter.component.Item;
-import org.rspeer.runetek.adapter.scene.SceneObject;
-import org.rspeer.runetek.api.component.Bank;
+import io.stricker.status.CurrentStatus;
+import io.stricker.status.Status;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
-import org.rspeer.runetek.api.movement.position.Position;
 import org.rspeer.runetek.api.scene.Players;
-import org.rspeer.runetek.api.scene.SceneObjects;
 import org.rspeer.ui.Log;
-
-import java.util.function.Predicate;
 
 public class TraverseEnter extends Node {
     private NpcResult result;
@@ -27,9 +21,9 @@ public class TraverseEnter extends Node {
 
     @Override
     public boolean validate() {
-        if(!Players.getLocal().isMoving() && !DOOR_AREA.contains(Players.getLocal())) {
-            if(Inventory.getCount(Predicates.WINE_PREDICATE) == 10) {
-                return true;
+        if (CurrentStatus.get() == Status.ENTERING){
+            if (!Players.getLocal().isMoving() && !DOOR_AREA.contains(Players.getLocal())) {
+                    return true;
             }
         }
 
@@ -54,6 +48,6 @@ public class TraverseEnter extends Node {
 
     @Override
     public String status() {
-        return status;
+        return "Walking to entrance...";
     }
 }

@@ -65,6 +65,9 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
     private Node TRAVERSE_ENTER = new TraverseEnter();
     private Node LEAVE_ACTION = new LeaveAction();
     private Node TRAVERSE_LEAVE = new TraverseLeave();
+    private Node EAT_ACTION = new EatAction();
+    private Node TRAVERSE_BRUMA = new TraverseBruma();
+    private Node BRUMA_ACTION = new BrumaAction();
 
     @Override
     public void onStart() {
@@ -89,7 +92,10 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
                 .submit(TRAVERSE_ENTER)
                 .submit(ENTER_ACTION)
                 .submit(LEAVE_ACTION)
-                .submit(TRAVERSE_LEAVE);
+                .submit(TRAVERSE_LEAVE)
+                .submit(EAT_ACTION)
+                .submit(TRAVERSE_BRUMA)
+                .submit(BRUMA_ACTION);
     }
 
     @Override

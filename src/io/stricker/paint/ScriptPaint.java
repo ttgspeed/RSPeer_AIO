@@ -21,7 +21,7 @@ import java.util.Map;
 public final class ScriptPaint implements RenderListener {
 
     private static final int BASE_X = 6;
-    private static final int BASE_Y = 6;
+    private static final int BASE_Y = 250;
 
     private static final int DEFAULT_WIDTH_INCR = 20;
 
@@ -38,7 +38,7 @@ public final class ScriptPaint implements RenderListener {
 
     public ScriptPaint(Fighter context) {
         stats = new LinkedHashMap<>();
-        outline = new Color(240, 0, 73);
+        outline = new Color(30, 240, 173);
 
         ScriptMeta meta = context.getMeta();
         stats.put(meta.name(), new PaintStatistic(true, () -> "v" + meta.version() + " by " + meta.developer()));
@@ -131,14 +131,6 @@ public final class ScriptPaint implements RenderListener {
             String string = entry.getKey() + (stat.isHeading() ? " - " : ": ") + stat.toString();
             int drawX = currentX;
             if (stat.isHeading()) {
-                drawX = BASE_X + ((width + DEFAULT_WIDTH_INCR) - g.getFontMetrics().stringWidth(string)) / 2;
-                g.setColor(outline);
-                g.drawRect(BASE_X, currentY + (LINE_HEIGHT / 2) - BASE_Y + 1, width + DEFAULT_WIDTH_INCR, LINE_HEIGHT);
-
-                g.setComposite(AlphaComposite.SrcOver.derive(0.1f));
-                g.fillRect(BASE_X, currentY + (LINE_HEIGHT / 2) - BASE_Y + 1, width + DEFAULT_WIDTH_INCR, LINE_HEIGHT);
-                g.setComposite(defaultComposite);
-
                 g.setFont(g.getFont().deriveFont(Font.BOLD));
             } else {
                 g.setFont(g.getFont().deriveFont(Font.PLAIN));
