@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="RSPeer_AIO:jar">
+    <output-path>$USER_HOME$/Documents/RSPeer/scripts</output-path>
+    <root id="archive" name="RSPeer_AIO.jar">
+      <element id="module-output" name="RSPeer_Scripts" />
+    </root>
+  </artifact>
+</component>

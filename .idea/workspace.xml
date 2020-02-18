@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4289caea-585b-4660-9ad6-c96435edb1c0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XrZIvl7TLp2X64YqOYwnc32laR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RSPeer-AIO-Fighter-master" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Justin\Desktop\RSPeer_Test\src\io\stricker\scripts" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="io.stricker.Main" />
+      <module name="RSPeer_Scripts" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4289caea-585b-4660-9ad6-c96435edb1c0" name="Default Changelist" comment="" />
+      <created>1581806097289</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581806097289</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="872" y="358" key="#Project_Structure" timestamp="1581962257958">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="358" key="#Project_Structure/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581962257958" />
+    <state x="3432" y="358" key="#Project_Structure/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1581806917099" />
+    <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser" timestamp="1581806319296">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581806319296" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581978108277">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581978108277" />
+    <state x="1060" y="454" key="FileChooserDialogImpl" timestamp="1581911886408">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="454" key="FileChooserDialogImpl/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581911886408" />
+    <state x="3320" y="274" key="SettingsEditor" timestamp="1581807255005">
+      <screen x="2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="3320" y="274" key="SettingsEditor/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1581807255005" />
+    <state x="877" y="219" width="737" height="909" key="find.popup" timestamp="1581964140390">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="877" y="219" width="737" height="909" key="find.popup/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1581964140390" />
+  </component>
+</project>
