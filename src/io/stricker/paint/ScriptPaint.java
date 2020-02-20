@@ -8,6 +8,7 @@ import io.stricker.config.ProgressiveSet;
 import io.stricker.framework.Node;
 import io.stricker.models.Progressive;
 import io.stricker.nodes.idle.IdleNode;
+import io.stricker.nodes.wintertodt.WintertodtStats;
 import org.rspeer.runetek.api.component.tab.Combat;
 import org.rspeer.runetek.event.listeners.RenderListener;
 import org.rspeer.runetek.event.types.RenderEvent;
@@ -46,6 +47,15 @@ public final class ScriptPaint implements RenderListener {
         stats.put("Status", new PaintStatistic(() -> {
             Node active = context.getManager().getActive();
             return active == null ? "None" : active.getClass().getSimpleName() + " -> " + active.status();
+        }));
+        stats.put("Points", new PaintStatistic(() -> {
+           return String.valueOf(WintertodtStats.getPoints());
+        }));
+        stats.put("Energy", new PaintStatistic(() -> {
+            return String.valueOf(WintertodtStats.getEnergy());
+        }));
+        stats.put("Returns", new PaintStatistic(() -> {
+            return String.valueOf(WintertodtStats.getReturns());
         }));
 //        stats.put("Progressive", new PaintStatistic(() -> {
 //            Progressive set = ProgressiveSet.getCurrent();

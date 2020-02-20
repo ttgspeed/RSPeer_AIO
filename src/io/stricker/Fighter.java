@@ -59,6 +59,7 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
     private Node PLOUGH_NODE = new PloughNode();
     private Node PLOUGH_ACTION = new PloughAction();
 
+    private Node WINTERTODT_STATS = new WintertodtStats();
     private Node BANK_ACTION = new BankAction();
     private Node TRAVERSE_BANK = new TraverseBank();
     private Node ENTER_ACTION = new EnterAction();
@@ -68,6 +69,10 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
     private Node EAT_ACTION = new EatAction();
     private Node TRAVERSE_BRUMA = new TraverseBruma();
     private Node BRUMA_ACTION = new BrumaAction();
+    private Node FLETCH_ACTION = new FletchAction();
+    private Node TRAVERSE_BRAZIER = new TraverseBrazier();
+    private Node BRAZIER_ACTION = new BrazierAction();
+    private Node NEWROUND_ACTION = new NewRoundAction();
 
     @Override
     public void onStart() {
@@ -87,6 +92,7 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
 
     private void setupNodes() {
         manager
+                .submit(WINTERTODT_STATS)
                 .submit(TRAVERSE_BANK)
                 .submit(BANK_ACTION)
                 .submit(TRAVERSE_ENTER)
@@ -95,7 +101,11 @@ public class Fighter extends Script implements RenderListener, TargetListener, D
                 .submit(TRAVERSE_LEAVE)
                 .submit(EAT_ACTION)
                 .submit(TRAVERSE_BRUMA)
-                .submit(BRUMA_ACTION);
+                .submit(BRUMA_ACTION)
+                .submit(FLETCH_ACTION)
+                .submit(TRAVERSE_BRAZIER)
+                .submit(BRAZIER_ACTION)
+                .submit(NEWROUND_ACTION);
     }
 
     @Override

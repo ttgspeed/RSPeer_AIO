@@ -7,6 +7,7 @@ import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
+import org.rspeer.runetek.api.commons.math.Random;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.position.Area;
@@ -43,11 +44,31 @@ public class BankAction extends Node {
         if(target != null){
             target.interact("Bank");
             if(Bank.isOpen()){
-                Bank.depositAllExcept(Predicates.KNIFE);
-                Time.sleep(648, 923);
-                Bank.withdraw(Predicates.JUG_OF_WINE,10);
-                //Bank.close();
-                CurrentStatus.set(Status.ENTERING);
+//                if(Inventory.getCount(Predicates.JUG) != 0){
+//                    Bank.depositAll(Predicates.JUG);
+//                    Time.sleep(1356, 1505);
+//                }
+//                if(Inventory.getCount(Predicates.SUPPLY_CRATE) != 0){
+//                    Bank.depositAll(Predicates.SUPPLY_CRATE);
+//                    Time.sleep(1256, 1705);
+//                }
+                Bank.depositInventory();
+                Time.sleepUntil(() -> Inventory.isEmpty(), Random.high(3134,4845));
+                Bank.withdraw(Predicates.KNIFE,1);
+                Time.sleepUntil(() -> Inventory.getCount(Predicates.KNIFE) == 1, Random.high(3134,4845));
+                Bank.withdraw(Predicates.JUG_OF_WINE,10-Inventory.getCount(Predicates.JUG_OF_WINE));
+                Time.sleepUntil(() -> Inventory.getCount(Predicates.JUG_OF_WINE) == 10, Random.high(3134,4845));
+
+//                if(Inventory.getCount(Predicates.JUG_OF_WINE) < 10){
+//                    Bank.withdraw(Predicates.JUG_OF_WINE,10-Inventory.getCount(Predicates.JUG_OF_WINE));
+//                }
+                Time.sleep(1253, 1863);
+
+                if(Inventory.getCount(Predicates.JUG_OF_WINE) == 10 && Inventory.getCount(Predicates.KNIFE) == 1) {
+                    CurrentStatus.set(Status.ENTERING);
+                } else {
+                    Bank.close();
+                }
             }
         }
     }

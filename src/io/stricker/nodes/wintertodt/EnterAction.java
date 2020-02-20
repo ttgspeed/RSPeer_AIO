@@ -1,5 +1,6 @@
 package io.stricker.nodes.wintertodt;
 
+import io.stricker.config.Areas;
 import io.stricker.config.Predicates;
 import io.stricker.framework.Node;
 import io.stricker.models.NpcResult;
@@ -23,7 +24,7 @@ public class EnterAction extends Node {
 
     @Override
     public boolean validate() {
-        if(CurrentStatus.get() == Status.ENTERING) {
+        if(CurrentStatus.get() == Status.ENTERING && !Areas.WINTERTODT_AREA.contains(Players.getLocal())) {
             if(!Players.getLocal().isMoving() && DOOR_AREA.contains(Players.getLocal())) {
                 return true;
             }
@@ -37,7 +38,6 @@ public class EnterAction extends Node {
         SceneObject target = SceneObjects.getNearest(29322);
         if(target != null){
             target.interact("Enter");
-            CurrentStatus.set(Status.CHOPPING);
         }
     }
 

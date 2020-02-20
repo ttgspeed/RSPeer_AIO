@@ -8,9 +8,11 @@ import io.stricker.models.NpcResult;
 import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
 import org.rspeer.runetek.adapter.Positionable;
+import org.rspeer.runetek.adapter.component.InterfaceComponent;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
 import org.rspeer.runetek.api.component.Bank;
+import org.rspeer.runetek.api.component.Interfaces;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
@@ -20,36 +22,34 @@ import org.rspeer.runetek.api.scene.Scene;
 import org.rspeer.runetek.api.scene.SceneObjects;
 import org.rspeer.ui.Log;
 
-public class BrumaAction extends Node {
+public class FletchAction extends Node {
     private NpcResult result;
 
     private final static Area BRUMA_AREA = Area.absolute(new Position(1622, 3988));
 
-    public BrumaAction(){}
+    public FletchAction(){}
 
     @Override
     public boolean validate() {
-        if (CurrentStatus.get() == Status.CHOPPING && WintertodtStats.getEnergy() > 0){
-            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && BRUMA_AREA.contains(Players.getLocal())) {
+        if (CurrentStatus.get() == Status.FLETCHING){
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }
-        //1622 3996
         return false;
     }
 
     @Override
     public void execute() {
-        SceneObject target = SceneObjects.getNearest(29311);
-
-        if(target != null){
-            if(!Inventory.isFull() && (Inventory.getCount(Predicates.BRUMA_ROOT) < getKindlingUntil500())) {
-                if(Players.getLocal().getAnimation() == -1) {
-                    Log.fine("Chopping Bruma...");
-                    target.interact("Chop");
-                }
+        if(Players.getLocal().getAnimation() == -1 || Players.getLocal().getAnimation() == 867) {
+            if(Inventory.getFirst(Predicates.BRUMA_ROOT) != null){
+                Inventory.getFirst(Predicates.KNIFE).interact("Use");
+                Time.sleep(380, 725);
+                Inventory.getFirst(Predicates.BRUMA_ROOT).interact("Use");
+                Time.sleep(725, 1225);
+                Log.fine("Fletching Bruma...");
             } else {
-                CurrentStatus.set(Status.FLETCHING);
+                CurrentStatus.set(Status.BURNING);
             }
         }
     }
@@ -66,12 +66,6 @@ public class BrumaAction extends Node {
 
     @Override
     public String status() {
-        return "Chopping Bruma";
-    }
-
-    private int getKindlingUntil500(){
-        int pointsTo500 = 500 - WintertodtStats.getPoints();
-        int kindlingTo500 = (int)Math.ceil((pointsTo500/25)+0.0);
-        return kindlingTo500;
+        return "Fletching";
     }
 }

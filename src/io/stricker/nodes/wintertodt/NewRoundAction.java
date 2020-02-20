@@ -6,23 +6,26 @@ import io.stricker.framework.Node;
 import io.stricker.models.NpcResult;
 import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
+import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.component.tab.Inventory;
-import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
 import org.rspeer.runetek.api.scene.Players;
-import org.rspeer.ui.Log;
+import org.rspeer.runetek.api.scene.SceneObjects;
 
-public class TraverseLeave extends Node {
+public class NewRoundAction extends Node {
+
     private NpcResult result;
+    private String status;
+    private boolean running;
 
-    private final static Area DOOR_AREA = Area.rectangular(1628, 3968, 1632, 3969);
+    private final static Area DOOR_AREA = Area.rectangular(1628, 3962, 1632, 3963);
 
-    public TraverseLeave(){}
+    public NewRoundAction(){}
 
     @Override
     public boolean validate() {
-        if(CurrentStatus.get() == Status.BANKING) {
-            if(!Players.getLocal().isMoving() && !DOOR_AREA.contains(Players.getLocal()) && Areas.WINTERTODT_AREA.contains(Players.getLocal())) {
+        if(CurrentStatus.get() == Status.ENTERING) {
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }
@@ -32,8 +35,9 @@ public class TraverseLeave extends Node {
 
     @Override
     public void execute() {
-        Log.fine("Walking to exit...");
-        Movement.getDaxWalker().walkTo(DOOR_AREA.getCenter().randomize(1));
+        if(WintertodtStats.getEnergy() == 0 || WintertodtStats.getEnergy() > 95){
+            CurrentStatus.set(Status.CHOPPING);
+        }
     }
 
     @Override
@@ -48,6 +52,6 @@ public class TraverseLeave extends Node {
 
     @Override
     public String status() {
-        return "Walking to exit...";
+        return "Waiting for new round";
     }
 }

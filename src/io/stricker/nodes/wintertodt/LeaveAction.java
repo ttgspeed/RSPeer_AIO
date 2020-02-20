@@ -25,7 +25,7 @@ public class LeaveAction extends Node {
 
     @Override
     public boolean validate() {
-        if (CurrentStatus.get() == Status.BANKING){
+        if (CurrentStatus.get() == Status.BANKING && WintertodtStats.getEnergy() == 0 && WintertodtStats.getPoints() == 0 && WintertodtStats.getReturns() != 0){
             if(!Players.getLocal().isMoving() && DOOR_AREA.contains(Players.getLocal())) {
                 return true;
             }
@@ -38,6 +38,7 @@ public class LeaveAction extends Node {
     public void execute() {
         SceneObject target = SceneObjects.getNearest(29322);
         if(target != null){
+            Time.sleep(3526, 9305);
             target.interact("Enter");
             Time.sleep(1526, 2305);
             Dialog.process("Leave and lose all progress.");

@@ -1,5 +1,6 @@
 package io.stricker.nodes.wintertodt;
 
+import io.stricker.config.Areas;
 import io.stricker.config.Predicates;
 import io.stricker.framework.Node;
 import io.stricker.models.NpcResult;
@@ -21,7 +22,7 @@ public class TraverseEnter extends Node {
 
     @Override
     public boolean validate() {
-        if (CurrentStatus.get() == Status.ENTERING){
+        if (CurrentStatus.get() == Status.ENTERING && !Areas.WINTERTODT_AREA.contains(Players.getLocal())){
             if (!Players.getLocal().isMoving() && !DOOR_AREA.contains(Players.getLocal())) {
                     return true;
             }

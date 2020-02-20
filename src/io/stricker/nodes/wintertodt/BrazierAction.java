@@ -42,21 +42,23 @@ public class BrazierAction extends Node {
 
     @Override
     public void execute() {
-        Log.fine("Chopping Bruma...");
         SceneObject target = SceneObjects.getNearest(29314);
 
         if(target != null){
-            if(Inventory.getFirst(Predicates.BRUMA_ROOT) != null){
-                if(Players.getLocal().getAnimation() == -1) {
-                    target.interact("Feed");
+            if(Inventory.getFirst(Predicates.BRUMA_KINDLING) != null){
+                Time.sleep(1250, 1780);
+                if(target.getPosition().getX() == 1620 && target.getPosition().getY() == 3997) {
+                    if (Players.getLocal().getAnimation() == -1) {
+                        Log.fine("Feeding Bruma...");
+                        target.interact("Feed");
+                    }
                 }
-            } else {
-                InterfaceComponent points = Interfaces.getComponent(396,12);
-                if(points != null){
-                    String pointsstr = points.getText();
-                    pointsstr = pointsstr.replaceAll("\\D+","");
+            } else{
+                if(WintertodtStats.getPoints() < 500){
+                    CurrentStatus.set(Status.CHOPPING);
+                } else {
+                    CurrentStatus.set(Status.BANKING);
                 }
-                CurrentStatus.set(Status.CHOPPING);
             }
         }
     }
@@ -73,6 +75,6 @@ public class BrazierAction extends Node {
 
     @Override
     public String status() {
-        return "Chopping Bruma";
+        return "Feeding Brazier";
     }
 }
