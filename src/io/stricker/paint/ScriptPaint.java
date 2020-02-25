@@ -22,7 +22,7 @@ import java.util.Map;
 public final class ScriptPaint implements RenderListener {
 
     private static final int BASE_X = 6;
-    private static final int BASE_Y = 250;
+    private static final int BASE_Y = 175;
 
     private static final int DEFAULT_WIDTH_INCR = 20;
 
@@ -47,6 +47,12 @@ public final class ScriptPaint implements RenderListener {
         stats.put("Status", new PaintStatistic(() -> {
             Node active = context.getManager().getActive();
             return active == null ? "None" : active.getClass().getSimpleName() + " -> " + active.status();
+        }));
+        stats.put("Rounds Completed", new PaintStatistic(() -> {
+            return String.valueOf(WintertodtStats.getRoundsCompleted());
+        }));
+        stats.put("XP Gained", new PaintStatistic(() -> {
+            return String.valueOf(WintertodtStats.getXPGained());
         }));
         stats.put("Points", new PaintStatistic(() -> {
            return String.valueOf(WintertodtStats.getPoints());

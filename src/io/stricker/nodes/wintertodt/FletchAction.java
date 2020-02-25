@@ -11,6 +11,7 @@ import org.rspeer.runetek.adapter.Positionable;
 import org.rspeer.runetek.adapter.component.InterfaceComponent;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
+import org.rspeer.runetek.api.commons.math.Random;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.Interfaces;
 import org.rspeer.runetek.api.component.tab.Inventory;
@@ -24,8 +25,6 @@ import org.rspeer.ui.Log;
 
 public class FletchAction extends Node {
     private NpcResult result;
-
-    private final static Area BRUMA_AREA = Area.absolute(new Position(1622, 3988));
 
     public FletchAction(){}
 
@@ -45,7 +44,8 @@ public class FletchAction extends Node {
             if(Inventory.getFirst(Predicates.BRUMA_ROOT) != null){
                 Inventory.getFirst(Predicates.KNIFE).interact("Use");
                 Time.sleep(380, 725);
-                Inventory.getFirst(Predicates.BRUMA_ROOT).interact("Use");
+                int randomRoot = Random.low(Inventory.getFirst(Predicates.BRUMA_ROOT).getIndex(),Inventory.getLast(Predicates.BRUMA_ROOT).getIndex());
+                Inventory.getItemAt(randomRoot).interact("Use");
                 Time.sleep(725, 1225);
                 Log.fine("Fletching Bruma...");
             } else {

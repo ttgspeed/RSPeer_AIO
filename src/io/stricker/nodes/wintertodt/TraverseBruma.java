@@ -19,14 +19,12 @@ import org.rspeer.ui.Log;
 public class TraverseBruma extends Node {
     private NpcResult result;
 
-    private final static Area BRUMA_AREA = Area.absolute(new Position(1622, 3988));
-
     public TraverseBruma(){}
 
     @Override
     public boolean validate() {
         if (CurrentStatus.get() == Status.CHOPPING){
-            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && !BRUMA_AREA.contains(Players.getLocal())) {
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && !Areas.BRUMA_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }
@@ -37,7 +35,7 @@ public class TraverseBruma extends Node {
     @Override
     public void execute() {
         Log.fine("Walking to Bruma...");
-        Movement.walkTo(Location.location(BRUMA_AREA).asPosition());
+        Movement.walkTo(Location.location(Areas.BRUMA_AREA).asPosition());
     }
 
     @Override

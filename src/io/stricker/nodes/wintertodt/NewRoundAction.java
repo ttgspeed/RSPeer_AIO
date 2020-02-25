@@ -7,6 +7,7 @@ import io.stricker.models.NpcResult;
 import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
 import org.rspeer.runetek.adapter.scene.SceneObject;
+import org.rspeer.runetek.api.commons.Time;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.position.Area;
 import org.rspeer.runetek.api.scene.Players;
@@ -35,6 +36,7 @@ public class NewRoundAction extends Node {
 
     @Override
     public void execute() {
+        Time.sleep(1757,3287);
         if(WintertodtStats.getEnergy() == 0 || WintertodtStats.getEnergy() > 95){
             CurrentStatus.set(Status.CHOPPING);
         }

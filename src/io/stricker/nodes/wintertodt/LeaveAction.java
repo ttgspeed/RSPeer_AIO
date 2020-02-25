@@ -42,6 +42,7 @@ public class LeaveAction extends Node {
             target.interact("Enter");
             Time.sleep(1526, 2305);
             Dialog.process("Leave and lose all progress.");
+            WintertodtStats.roundsCompleted();
         }
     }
 

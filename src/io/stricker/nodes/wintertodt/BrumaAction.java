@@ -23,14 +23,12 @@ import org.rspeer.ui.Log;
 public class BrumaAction extends Node {
     private NpcResult result;
 
-    private final static Area BRUMA_AREA = Area.absolute(new Position(1622, 3988));
-
     public BrumaAction(){}
 
     @Override
     public boolean validate() {
         if (CurrentStatus.get() == Status.CHOPPING && WintertodtStats.getEnergy() > 0){
-            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && BRUMA_AREA.contains(Players.getLocal())) {
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && Areas.BRUMA_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }

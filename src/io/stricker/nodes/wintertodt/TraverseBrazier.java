@@ -19,14 +19,12 @@ import org.rspeer.ui.Log;
 public class TraverseBrazier extends Node {
     private NpcResult result;
 
-    private final static Area BRAZIER_AREA = Area.absolute(new Position(1622, 3996));
-
     public TraverseBrazier(){}
 
     @Override
     public boolean validate() {
         if (CurrentStatus.get() == Status.BURNING){
-            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && !BRAZIER_AREA.contains(Players.getLocal())) {
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && !Areas.BRAZIER_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }
@@ -36,7 +34,7 @@ public class TraverseBrazier extends Node {
     @Override
     public void execute() {
         Log.fine("Walking to Brazier...");
-        Movement.walkTo(Location.location(BRAZIER_AREA).asPosition());
+        Movement.walkTo(Location.location(Areas.BRAZIER_AREA).asPosition());
     }
 
     @Override

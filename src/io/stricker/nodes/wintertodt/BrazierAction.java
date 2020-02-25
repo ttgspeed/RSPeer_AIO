@@ -9,14 +9,17 @@ import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
 import org.rspeer.runetek.adapter.Positionable;
 import org.rspeer.runetek.adapter.component.InterfaceComponent;
+import org.rspeer.runetek.adapter.scene.Npc;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
+import org.rspeer.runetek.api.commons.math.Distance;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.Interfaces;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
 import org.rspeer.runetek.api.movement.position.Position;
+import org.rspeer.runetek.api.scene.Npcs;
 import org.rspeer.runetek.api.scene.Players;
 import org.rspeer.runetek.api.scene.Scene;
 import org.rspeer.runetek.api.scene.SceneObjects;
@@ -25,14 +28,12 @@ import org.rspeer.ui.Log;
 public class BrazierAction extends Node {
     private NpcResult result;
 
-    private final static Area BRAZIER_AREA = Area.absolute(new Position(1622, 3996));
-
     public BrazierAction(){}
 
     @Override
     public boolean validate() {
         if (CurrentStatus.get() == Status.BURNING){
-            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && BRAZIER_AREA.contains(Players.getLocal())) {
+            if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && Areas.BRAZIER_AREA.contains(Players.getLocal())) {
                 return true;
             }
         }
@@ -43,15 +44,19 @@ public class BrazierAction extends Node {
     @Override
     public void execute() {
         SceneObject target = SceneObjects.getNearest(29314);
+        Npc pyromancer = Npcs.getNearest(7371);
 
-        if(target != null){
+        if(target != null && pyromancer != null){
+            if(Distance.between(Players.getLocal().getPosition(),pyromancer.getPosition()) > 5){
+                Log.fine("Swapping areas. Distance: "+Distance.between(Players.getLocal().getPosition(),pyromancer.getPosition()));
+                Areas.swapAreas();
+                return;
+            }
             if(Inventory.getFirst(Predicates.BRUMA_KINDLING) != null){
                 Time.sleep(1250, 1780);
-                if(target.getPosition().getX() == 1620 && target.getPosition().getY() == 3997) {
-                    if (Players.getLocal().getAnimation() == -1) {
-                        Log.fine("Feeding Bruma...");
-                        target.interact("Feed");
-                    }
+                if (Players.getLocal().getAnimation() == -1) {
+                    Log.fine("Feeding Brazier...");
+                    target.interact("Feed");
                 }
             } else{
                 if(WintertodtStats.getPoints() < 500){

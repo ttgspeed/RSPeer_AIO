@@ -14,6 +14,8 @@ import org.rspeer.runetek.api.commons.Time;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.Interfaces;
 import org.rspeer.runetek.api.component.tab.Inventory;
+import org.rspeer.runetek.api.component.tab.Skill;
+import org.rspeer.runetek.api.component.tab.Skills;
 import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
 import org.rspeer.runetek.api.movement.position.Position;
@@ -28,6 +30,9 @@ public class WintertodtStats extends Node {
     private static int points = 0;
     private static int energy = 0;
     private static int returns = 0;
+
+    private static int roundsCompleted = 0;
+    private static int initialXP = 0;
 
     public WintertodtStats(){}
 
@@ -86,11 +91,29 @@ public class WintertodtStats extends Node {
     public static int getPoints(){
         return points;
     }
-
     public static int getEnergy(){
         return energy;
     }
     public static int getReturns(){
         return returns;
+    }
+
+    public static int getXPGained() {
+        if(initialXP == 0){
+            initialXP = Skills.getExperience(Skill.FIREMAKING);
+        }
+        return Skills.getExperience(Skill.FIREMAKING)-initialXP;
+    }
+
+    public static int getRoundsCompleted() {
+        return roundsCompleted;
+    }
+
+    public static void setInitialXP(int initialXP) {
+        WintertodtStats.initialXP = initialXP;
+    }
+
+    public static void roundsCompleted() {
+        roundsCompleted++;
     }
 }

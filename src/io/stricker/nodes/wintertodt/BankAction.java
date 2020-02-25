@@ -5,6 +5,7 @@ import io.stricker.framework.Node;
 import io.stricker.models.NpcResult;
 import io.stricker.status.CurrentStatus;
 import io.stricker.status.Status;
+import io.stricker.wrappers.CombatWrapper;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
 import org.rspeer.runetek.api.commons.math.Random;
@@ -44,27 +45,23 @@ public class BankAction extends Node {
         if(target != null){
             target.interact("Bank");
             if(Bank.isOpen()){
-//                if(Inventory.getCount(Predicates.JUG) != 0){
-//                    Bank.depositAll(Predicates.JUG);
-//                    Time.sleep(1356, 1505);
-//                }
-//                if(Inventory.getCount(Predicates.SUPPLY_CRATE) != 0){
-//                    Bank.depositAll(Predicates.SUPPLY_CRATE);
-//                    Time.sleep(1256, 1705);
-//                }
-                Bank.depositInventory();
-                Time.sleepUntil(() -> Inventory.isEmpty(), Random.high(3134,4845));
-                Bank.withdraw(Predicates.KNIFE,1);
-                Time.sleepUntil(() -> Inventory.getCount(Predicates.KNIFE) == 1, Random.high(3134,4845));
-                Bank.withdraw(Predicates.JUG_OF_WINE,10-Inventory.getCount(Predicates.JUG_OF_WINE));
-                Time.sleepUntil(() -> Inventory.getCount(Predicates.JUG_OF_WINE) == 10, Random.high(3134,4845));
+                if(!Inventory.isEmpty()){
+                    Bank.depositInventory();
+                    Time.sleepUntil(() -> Inventory.isEmpty(), Random.low(1826,4845));
 
-//                if(Inventory.getCount(Predicates.JUG_OF_WINE) < 10){
-//                    Bank.withdraw(Predicates.JUG_OF_WINE,10-Inventory.getCount(Predicates.JUG_OF_WINE));
-//                }
+                    return;
+                }
+                Time.sleep(1093, 1803);
+
+                Bank.withdraw(Predicates.KNIFE,1);
+                Time.sleepUntil(() -> Inventory.getCount(Predicates.KNIFE) == 1, Random.low(3134,4845));
                 Time.sleep(1253, 1863);
 
-                if(Inventory.getCount(Predicates.JUG_OF_WINE) == 10 && Inventory.getCount(Predicates.KNIFE) == 1) {
+                Bank.withdraw(Predicates.JUG_OF_WINE,10-Inventory.getCount(Predicates.JUG_OF_WINE));
+                Time.sleepUntil(() -> Inventory.getCount(Predicates.JUG_OF_WINE) == 10, Random.low(3134,4845));
+                Time.sleep(1106, 1653);
+
+                if(Inventory.getCount(Predicates.JUG_OF_WINE) == 10 && Inventory.getCount(Predicates.KNIFE) == 1 && CombatWrapper.getHealthPercent() >= 95) {
                     CurrentStatus.set(Status.ENTERING);
                 } else {
                     Bank.close();
