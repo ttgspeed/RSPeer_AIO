@@ -10,6 +10,7 @@ import io.stricker.status.Status;
 import org.rspeer.runetek.adapter.Positionable;
 import org.rspeer.runetek.adapter.scene.SceneObject;
 import org.rspeer.runetek.api.commons.Time;
+import org.rspeer.runetek.api.commons.math.Random;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.tab.Inventory;
 import org.rspeer.runetek.api.movement.Movement;
@@ -41,12 +42,13 @@ public class BrumaAction extends Node {
         SceneObject target = SceneObjects.getNearest(29311);
 
         if(target != null){
-            if(!Inventory.isFull() && (Inventory.getCount(Predicates.BRUMA_ROOT) < getKindlingUntil500())) {
+            if(!Inventory.isFull() && (Inventory.getCount(Predicates.BRUMA_ROOT) <= getKindlingUntil500())) {
                 if(Players.getLocal().getAnimation() == -1) {
                     Log.fine("Chopping Bruma...");
                     target.interact("Chop");
                 }
             } else {
+                Time.sleep(26, Random.low(56,1746));
                 CurrentStatus.set(Status.FLETCHING);
             }
         }

@@ -44,6 +44,7 @@ public class BankAction extends Node {
 
         if(target != null){
             target.interact("Bank");
+            Time.sleep(630, 890);
             if(Bank.isOpen()){
                 if(!Inventory.isEmpty()){
                     Bank.depositInventory();
@@ -61,7 +62,7 @@ public class BankAction extends Node {
                 Time.sleepUntil(() -> Inventory.getCount(Predicates.JUG_OF_WINE) == 10, Random.low(3134,4845));
                 Time.sleep(1106, 1653);
 
-                if(Inventory.getCount(Predicates.JUG_OF_WINE) == 10 && Inventory.getCount(Predicates.KNIFE) == 1 && CombatWrapper.getHealthPercent() >= 95) {
+                if(Inventory.getCount(Predicates.JUG_OF_WINE) == 10 && Inventory.getCount(Predicates.KNIFE) == 1) {
                     CurrentStatus.set(Status.ENTERING);
                 } else {
                     Bank.close();

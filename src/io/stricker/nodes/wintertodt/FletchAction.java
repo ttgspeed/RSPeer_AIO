@@ -49,7 +49,11 @@ public class FletchAction extends Node {
                 Time.sleep(725, 1225);
                 Log.fine("Fletching Bruma...");
             } else {
-                CurrentStatus.set(Status.BURNING);
+                if(WintertodtStats.getEnergy() == 0){
+                    CurrentStatus.set(Status.BANKING);
+                }else {
+                    CurrentStatus.set(Status.BURNING);
+                }
             }
         }
     }

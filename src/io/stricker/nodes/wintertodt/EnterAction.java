@@ -18,7 +18,7 @@ public class EnterAction extends Node {
     private String status;
     private boolean running;
 
-    private final static Area DOOR_AREA = Area.rectangular(1628, 3962, 1632, 3963);
+    private final static Area DOOR_AREA = Area.rectangular(1628, 3960, 1632, 3963);
 
     public EnterAction(){}
 

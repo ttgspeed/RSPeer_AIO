@@ -30,7 +30,7 @@ public class EatAction extends Node {
         if(Inventory.getFirst(Predicates.JUG_OF_WINE) != null){
             Inventory.getFirst(Predicates.JUG_OF_WINE).interact("Drink");
         } else {
-            if(CombatWrapper.getHealthPercent() < 30){
+            if(CombatWrapper.getHealthPercent() < 50){
                 CurrentStatus.set(Status.BANKING);
             }
         }

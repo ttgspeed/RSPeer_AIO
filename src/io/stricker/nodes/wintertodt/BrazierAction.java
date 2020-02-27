@@ -16,6 +16,8 @@ import org.rspeer.runetek.api.commons.math.Distance;
 import org.rspeer.runetek.api.component.Bank;
 import org.rspeer.runetek.api.component.Interfaces;
 import org.rspeer.runetek.api.component.tab.Inventory;
+import org.rspeer.runetek.api.component.tab.Skill;
+import org.rspeer.runetek.api.component.tab.Skills;
 import org.rspeer.runetek.api.movement.Movement;
 import org.rspeer.runetek.api.movement.position.Area;
 import org.rspeer.runetek.api.movement.position.Position;
@@ -23,10 +25,12 @@ import org.rspeer.runetek.api.scene.Npcs;
 import org.rspeer.runetek.api.scene.Players;
 import org.rspeer.runetek.api.scene.Scene;
 import org.rspeer.runetek.api.scene.SceneObjects;
+import org.rspeer.runetek.api.commons.StopWatch;
 import org.rspeer.ui.Log;
 
 public class BrazierAction extends Node {
     private NpcResult result;
+    private int lastXP = Skills.getExperience(Skill.FIREMAKING);
 
     public BrazierAction(){}
 
@@ -34,6 +38,7 @@ public class BrazierAction extends Node {
     public boolean validate() {
         if (CurrentStatus.get() == Status.BURNING){
             if(!Players.getLocal().isMoving() && Areas.WINTERTODT_AREA.contains(Players.getLocal()) && Areas.BRAZIER_AREA.contains(Players.getLocal())) {
+                lastXP = Skills.getExperience(Skill.FIREMAKING);
                 return true;
             }
         }
@@ -47,16 +52,21 @@ public class BrazierAction extends Node {
         Npc pyromancer = Npcs.getNearest(7371);
 
         if(target != null && pyromancer != null){
-            if(Distance.between(Players.getLocal().getPosition(),pyromancer.getPosition()) > 5){
+            if(Distance.between(Areas.BRAZIER_AREA.getCenter().getPosition(),pyromancer.getPosition()) > 5){
                 Log.fine("Swapping areas. Distance: "+Distance.between(Players.getLocal().getPosition(),pyromancer.getPosition()));
                 Areas.swapAreas();
                 return;
             }
             if(Inventory.getFirst(Predicates.BRUMA_KINDLING) != null){
-                Time.sleep(1250, 1780);
-                if (Players.getLocal().getAnimation() == -1) {
-                    Log.fine("Feeding Brazier...");
-                    target.interact("Feed");
+                if(Distance.between(Players.getLocal().getPosition(),target.getPosition()) < 5) {
+                    Time.sleep(1312, 1562);
+                    if (Players.getLocal().getAnimation() == -1 && lastXP == Skills.getExperience(Skill.FIREMAKING)) {
+                        if (Inventory.getFirst(Predicates.BRUMA_KINDLING) != null) {
+                            Log.fine("Feeding Brazier...");
+                            //lastXP = Skills.getExperience(Skill.FIREMAKING);
+                            target.interact("Feed");
+                        }
+                    }
                 }
             } else{
                 if(WintertodtStats.getPoints() < 500){
@@ -64,6 +74,10 @@ public class BrazierAction extends Node {
                 } else {
                     CurrentStatus.set(Status.BANKING);
                 }
+            }
+        } else {
+            if(WintertodtStats.getEnergy() == 0){
+                CurrentStatus.set(Status.BANKING);
             }
         }
     }
